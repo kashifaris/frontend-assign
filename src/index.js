@@ -1,12 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { combineReducers, createStore } from "redux";
+import { Provider } from "react-redux";
+
+function dataReducer(state = { name: "", age: "",dates:[] }, action) {
+  switch (action.type) {
+    case "UPDATENAME":
+      return { ...state, name: action.value };
+
+    case "UPDATEAGE":
+      return { ...state, age: action.value };
+    case "UPDATEDATES":
+      return { ...state, dates: action.value };
+
+    default:
+      return state;
+  }
+}
+
+const store = createStore(
+  combineReducers({
+    data: dataReducer,
+  })
+);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

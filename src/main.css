@@ -98,3 +98,14 @@
     justify-content: center;
     align-items: center;
   }
+
+.selected{
+  background-color: rgb(187, 8, 169);
+}
+
+.timer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}

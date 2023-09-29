@@ -4,7 +4,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   
   const gotitmsg = ()=>{
     const message= createChatBotMessage("Got it!");
-    console.log(message);
+    //console.log(message);
     const newmsg= {...message,type:"user"};
     updateState(newmsg,"calender");
   }
@@ -31,7 +31,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   }
 
   const finalMsg=()=>{
-    const message= createChatBotMessage("Thank You, you will be redirected in 5 sec");
+    const message= createChatBotMessage("Thank You, you will be redirected in",{
+      widget:"timer"
+    });
     updateState(message,"done")
   }
   

@@ -2,6 +2,7 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import Avatar from "./components/Avatar";
 import GotitBtn from "./components/GotitBtn";
 import CalenderStrip from "./calander/CalenderStrip";
+import Timer from "./components/Timer";
 
 const config = {
   botName: "Info System Bot",
@@ -22,6 +23,10 @@ const config = {
     {
       widgetName: "calenderStrip",
       widgetFunc: (props) => <CalenderStrip {...props} />,
+    },
+    {
+      widgetName: "timer",
+      widgetFunc: (props) => <Timer {...props} />,
     },
   ],
   state:{
